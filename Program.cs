@@ -30,11 +30,24 @@ namespace dotnet_with_serilog
 
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
+            try
+            {
+                Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(Configuration)
                 .CreateLogger();
 
-            CreateHostBuilder(args).Build().Run();
+                Log.Information("Starting up...");
+
+                CreateHostBuilder(args).Build().Run();
+            }
+            catch (Exception e)
+            {
+                Log.Error(e, "Application start-up failed!");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
