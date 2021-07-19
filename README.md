@@ -1,8 +1,3 @@
-# Manejo de Logs con Serilog en dotnet Core!
-
-Se hará una aplicación en .net (dotnet) Core para explicar el manejo de los logs usando la librería de **serilog**. Para el ejemplo escribiremos los logs que genera una aplicación web en la *consola*, en un *archivo* y en una *base de datos*.
-
-
 ## Paso 1: Instalación y Configuración
 
 Instalar las librerías:
